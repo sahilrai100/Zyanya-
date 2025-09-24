@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'shoppingapp','crispy_forms','crispy_bootstrap5', 'django_recaptcha'
+    'shoppingapp','crispy_forms','crispy_bootstrap5', 'captcha'
 ]
 
 RECAPTCHA_PUBLIC_KEY = '6Lc5ZssrAAAAAAmOktjYHR-9Yr6wFsqqZM7tn-g1'
