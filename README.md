@@ -1,6 +1,6 @@
 # 🛒 Real E-Commerce – Full-Stack Project
 
-A fully functional E-Commerce web application built with **Django**.  
+A fully functional E-Commerce web application built with **Django, html, css and js **.  
 This project includes user authentication, product listing, categories, cart, orders, payment handling structure, and an admin dashboard for product management.
 
 ---
