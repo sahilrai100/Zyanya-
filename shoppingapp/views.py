@@ -17,7 +17,6 @@ import random
 
 def random_numbers():
     return random.randint(999,10000)
-random_value=random_numbers()
 
 
 def home(request):
@@ -50,12 +49,14 @@ def regiter(request):
             request.session['username']=username
             site=site='http://127.0.0.1:8000/validation'
             request.session['pending_email'] = email
-           
+            otp = random_numbers()
+            request.session['otp'] = otp
+
             form.save()
-            
-            
+
+
             subject = "Welcome to Zyanya 🎉"
-            message = f"Hi {username},\n\nThank you for registering with us! \n your otp is {random_value} this otp is valid for 2 minutes\n click here {site}  to verify your otp  "
+            message = f"Hi {username},\n\nThank you for registering with us! \n your otp is {otp} this otp is valid for 2 minutes\n click here {site}  to verify your otp  "
             from_email = settings.EMAIL_HOST_USER
             recipient_list = [email]
             send_mail(subject, message, from_email, recipient_list ,fail_silently=True  )
@@ -212,8 +213,8 @@ def validation(request):
         form=requestotp(request.POST)
         if form.is_valid():
             otp=form.cleaned_data.get('otp')
-           
-            if otp == str(random_value): 
+
+            if otp == str(request.session.get('otp')):
 
                 return redirect('login')
             else:
